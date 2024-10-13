@@ -1,0 +1,11 @@
+.text-center {
+    text-align: center;
+  }
+  
+  .animate {
+    transition: opacity 0.5s;
+  }
+  
+  .animate.ng-animating {
+    opacity: 0;
+  }

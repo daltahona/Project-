@@ -75,7 +75,6 @@ export class EmpleadoController {
     const { id: pk } = req.params;
 
     const {
-      id,
       nombre,
       apellido,
       telefono,

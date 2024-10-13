@@ -1,7 +1,7 @@
 import express, { Application } from 'express';
 import morgan from 'morgan';
 import { Routes } from '../routes/index';   
-var cors = require("cors"); // install en node y types
+import cors from 'cors';
 
 export class App {
     public routePrv: Routes =  new Routes();
@@ -22,8 +22,13 @@ export class App {
 
     private middlewares() {
         this.app.use(morgan('dev'));
+        this.app.use(cors({
+            origin: '*', // Asegúrate de que esto esté correcto
+            methods: ['GET', 'POST', 'PUT', 'DELETE'],
+            credentials: true
+        }));
         this.app.use(express.json()); // leer json raw
-        this.app.use(express.urlencoded({ extended: false })); //leer json form
+        this.app.use(express.urlencoded({ extended: false })); // leer json form
     }
 
     routes() {
@@ -36,10 +41,8 @@ export class App {
     }
 
 
-   async listen() {
+    async listen() {
         await this.app.listen(this.app.get('port'));
-        // await this.app.listen(this.port);
-        // console.log('Server on port', this.port);
         console.log('Server on port', this.app.get('port'));
     }
 
