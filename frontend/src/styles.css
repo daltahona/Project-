@@ -1,19 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
 /* styles.css */
 
+/* Colores suaves */
+:root {
+  --primary-color: #f0f4f8; /* Un suave color azul claro */
+  --secondary-color: #d9e2ec; /* Un tono aún más claro */
+  --accent-color: #102a43; /* Un tono azul oscuro para contraste */
+  --border-color: #cbd2d9; /* Color del borde */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--primary-color);
+  color: var(--accent-color);
+}
+
 .app-container {
-    display: flex;
-  }
-  
+  display: flex;
+}
+
+/* Ajuste para el contenido principal */
+.content {
+  margin-left: 250px; /* Debe coincidir con el ancho del aside */
+  padding: 20px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
   .content {
-    margin-left: 250px; /* Debe coincidir con el ancho del aside */
-    padding: 20px;
-    width: 100%;
+    margin-left: 200px; /* Debe coincidir con el ancho reducido del aside */
   }
-  
-  /* Ajuste para pantallas pequeñas */
-  @media (max-width: 768px) {
-    .content {
-      margin-left: 200px; /* Debe coincidir con el ancho reducido del aside */
-    }
-  }
+}

@@ -1,7 +1,11 @@
 <div class="aside-container">
-    <div class="aside-header">
-    </div>
-    <div class="aside-body text-center flex flex-wrap justify-content-center">
-      <p-tabMenu [model]="items" (onItemChange)="onActiveItemChange($event)"></p-tabMenu>
-    </div>
+  <div class="aside-header"></div>
+  <div class="aside-body text-center flex flex-wrap justify-content-center">
+      <p-tabMenu [model]="items" (onItemChange)="onActiveItemChange($event)">
+          <ng-template let-item pTemplate="item">
+              <a pButton pRipple icon="{{item.icon}}" label="{{item.label}}" class="menu-button" [routerLink]="item.routerLink"></a>
+          </ng-template>
+      </p-tabMenu>
   </div>
+</div>
+

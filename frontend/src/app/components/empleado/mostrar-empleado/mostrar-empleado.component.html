@@ -1,40 +1,36 @@
 <p-card class="w-12 h-full">
     <ng-template pTemplate="header">
-  
         <div class="flex justify-content-between flex-wrap">
             <h3 class="ml-4">
                 Registro de Empleados
             </h3>
             <div class="mt-2 mr-2">
-                <a 
-                  pButton 
-                  pRipple
-                  label="Crear Empleados" 
-                  icon="pi pi-user-plus"
-                  class="bg-cyan-600"
-                  [routerLink]="['/empleados/nuevo']">
+                <a
+                    pButton
+                    pRipple
+                    label="Crear Empleados"
+                    icon="pi pi-user-plus"
+                    class="menu-button"
+                    [routerLink]="['/empleados/nuevo']">
                 </a>
-  
-  
             </div>
-  
         </div>
     </ng-template>
-    <p>
+    <div class="table-container">
         <p-table [value]="empleados">
             <ng-template pTemplate="header">
-                <tr>
+                <tr class="table-header">
                     <th>Nombre</th>
                     <th>Apellido</th>
-                    <th>Telefono</th>
-                    <th>Direccion</th>
+                    <th>Teléfono</th>
+                    <th>Dirección</th>
                     <th>Cargo</th>
                     <th>Correo</th>
                     <th class="flex justify-content-center flex-wrap">Acciones</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-empleados>
-                <tr>
+                <tr class="table-row">
                     <td>{{ empleados.nombre }}</td>
                     <td>{{ empleados.apellido }}</td>
                     <td>{{ empleados.telefono }}</td>
@@ -42,38 +38,33 @@
                     <td>{{ empleados.cargo }}</td>
                     <td>{{ empleados.correo }}</td>
                     <td>
-                        <button 
-                        pButton 
+                        <button
+                            pButton
                             pRipple
                             icon="pi pi-print"
-                            class="bg-cyan-600  mr-1"
-                        >
-  
+                            class="menu-button mr-1">
                         </button>
-                        <a 
-                            pButton 
+                        <a
+                            pButton
                             pRipple
                             icon="pi pi-sync"
-                            severity="warning"
-                            class="mr-1"
+                            class="menu-button bg-warning mr-1"
                             [routerLink]="['/empleados/edit', empleados.id]">
                         </a>
-  
-                        <button 
-                            pButton 
+                        <button
+                            pButton
                             pRipple
-                            severity="danger"
                             icon="pi pi-eraser"
-                            class="mr-1"
-                            (click)="eliminar(empleados.id)"
-                        >
-  
+                            class="menu-button bg-danger mr-1"
+                            (click)="eliminar(empleados.id)">
                         </button>
                     </td>
-  
                 </tr>
             </ng-template>
         </p-table>
-    </p>
-  
-  </p-card>
+    </div>
+</p-card>
+
+
+
+
