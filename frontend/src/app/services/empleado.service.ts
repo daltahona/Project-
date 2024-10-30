@@ -9,6 +9,7 @@ import { EmpleadoI } from '../models/empleado';
 export class EmpleadoService {
   api_uri_node = 'http://localhost:4000';
   base_path = `${this.api_uri_node}/empleados`
+  create_path = `${this.api_uri_node}/empleado`
 
   constructor(
     private http:HttpClient
@@ -27,7 +28,7 @@ export class EmpleadoService {
 
 
   createEmpleado(data: any):Observable<EmpleadoI>{
-    return this.http.post<EmpleadoI>(this.base_path, data)
+    return this.http.post<EmpleadoI>(this.create_path, data)
   }
 
   updateEmpleado(id: number, data: any): Observable<EmpleadoI> {
@@ -35,6 +36,6 @@ export class EmpleadoService {
   }
 
   deleteEmpleado(id: number): Observable<EmpleadoI> {
-    return this.http.delete<EmpleadoI>(`${this.base_path}/eliminar1/${id}`);
+    return this.http.delete<EmpleadoI>(`${this.api_uri_node}/empleado/${id}`);
   }
 }
