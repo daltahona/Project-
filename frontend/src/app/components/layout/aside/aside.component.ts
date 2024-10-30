@@ -21,7 +21,7 @@ export class AsideComponent implements OnInit {
     this.items = [
       { label: 'Empleados', icon: 'pi pi-users', routerLink: '/empleados' },
       { label: 'Proveedores', icon: 'pi pi-building', routerLink: '/proveedores' },
-      { label: 'Detalle Productos', icon: 'pi pi-qrcode', routerLink: '/detalle-productos' },
+      { label: 'Detalle Productos', icon: 'pi pi-qrcode', routerLink: '/detalle_productos' },
       { label: 'Categorías', icon: 'pi pi-tag', routerLink: '/categorias' },
       { label: 'Tipo Productos', icon: 'pi pi-qrcode', routerLink: '/tipo_Productos' },
       { label: 'Productos', icon: 'pi pi-shopping-bag', routerLink: '/productos' }
