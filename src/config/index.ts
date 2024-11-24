@@ -32,13 +32,14 @@ export class App {
     }
 
     routes() {
-        this.routePrv.empleadoRoutes.routes(this.app)
-        this.routePrv.proveedorRoutes.routes(this.app)
-        this.routePrv.detalleProductoRoutes.routes(this.app)
-        this.routePrv.categoriaRoutes.routes(this.app)
-        this.routePrv.tipoProductoRoutes.routes(this.app)
-        this.routePrv.productoRoutes.routes(this.app)
+        this.routePrv.employeeRoutes.routes(this.app)
+        this.routePrv.supplierRoutes.routes(this.app)
+        this.routePrv.productDetailRoutes.routes(this.app)
+        this.routePrv.categoryRoutes.routes(this.app)
+        this.routePrv.productTypeRoutes.routes(this.app)
+        this.routePrv.productRoutes.routes(this.app)
     }
+
 
 
     async listen() {

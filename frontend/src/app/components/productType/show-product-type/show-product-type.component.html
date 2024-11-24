@@ -1,0 +1,68 @@
+<p-card class="w-12 h-full">
+    <ng-template pTemplate="header">
+        <div class="flex justify-content-between flex-wrap">
+            <h3 class="ml-4">
+                Product Type Registry
+            </h3>
+            <div class="mt-2 mr-2">
+                <a
+                    pButton
+                    pRipple
+                    label="Create Product Type"
+                    icon="pi pi-user-plus"
+                    class="menu-button"
+                    [routerLink]="['/product_types/new']">
+                </a>
+            </div>
+        </div>
+    </ng-template>
+
+    <!-- Barra de búsqueda -->
+    <div class="controls-container">
+        <div class="search-container">
+            <i class="pi pi-search search-icon"></i>
+            <input 
+                type="text" 
+                class="search-input" 
+                [(ngModel)]="searchProductTypeTerm" 
+                (input)="filterProductTypes()" 
+                placeholder="Search product types...">
+        </div>
+    </div>
+
+    <div class="table-container">
+        <p-table [value]="filteredProductTypes">
+            <ng-template pTemplate="header">
+                <tr class="table-header">
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th class="flex justify-content-center flex-wrap">Actions</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-productType>
+                <tr class="table-row">
+                    <td>{{ productType.name }}</td>
+                    <td>{{ productType.description }}</td>
+                    <td>
+                        <a
+                            pButton
+                            pRipple
+                            icon="pi pi-sync"
+                            class="menu-button bg-warning mr-1"
+                            [routerLink]="['/product_types/edit', productType.id]">
+                        </a>
+                        <button
+                            pButton
+                            pRipple
+                            icon="pi pi-eraser"
+                            class="menu-button bg-danger mr-1"
+                            (click)="delete(productType.id)">
+                        </button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</p-card>
+
+

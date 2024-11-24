@@ -1,0 +1,57 @@
+<p-card class="w-12 h-full">
+    <ng-template pTemplate="header">
+      <div class="flex justify-content-between flex-wrap">
+        <h3 class="ml-4">
+          Supplier Registration
+        </h3>
+        <div class="mt-2 mr-2">
+          <a
+            pButton
+            pRipple
+            label="Create Supplier"
+            icon="pi pi-user-plus"
+            class="menu-button"
+            [routerLink]="['/suppliers/new']">
+          </a>
+        </div>
+      </div>
+    </ng-template>
+    <div class="table-container">
+      <p-table [value]="suppliers">
+        <ng-template pTemplate="header">
+          <tr class="table-header">
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Tax ID</th>
+            <th class="flex justify-content-center flex-wrap">Actions</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-supplier>
+          <tr class="table-row">
+            <td>{{ supplier.name }}</td>
+            <td>{{ supplier.phone }}</td>
+            <td>{{ supplier.email }}</td>
+            <td>{{ supplier.taxId }}</td>
+            <td>
+              <a
+                pButton
+                pRipple
+                icon="pi pi-sync"
+                class="menu-button bg-warning mr-1"
+                [routerLink]="['/suppliers/edit', supplier.id]">
+              </a>
+              <button
+                pButton
+                pRipple
+                icon="pi pi-eraser"
+                class="menu-button bg-danger mr-1"
+                (click)="delete(supplier.id)">
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </p-card>
+

@@ -1,11 +1,7 @@
 const Sequelize = require('sequelize');
-
-const DB_NAME = 'libreria2024';
-
+const DB_NAME = 'bookstore';
 const DB_USER = 'root';
-
 const DB_PASS = 'MiNiCo57**';
-
 
 
 export const database = new Sequelize(
@@ -23,7 +19,7 @@ export const database = new Sequelize(
 
 
 async function generateDb() {
-    await database.sync({ force: true })
+    await database.sync({ force: false })
     console.log('Base de datos y tablas creada');
 }
 

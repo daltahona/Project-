@@ -1,0 +1,71 @@
+<p-card class="w-12 h-full">
+    <ng-template pTemplate="header">
+        <div class="flex justify-content-between flex-wrap">
+            <h3 class="ml-4">
+                Product Registration
+            </h3>
+            <div class="mt-2 mr-2">
+                <a
+                    pButton
+                    pRipple
+                    label="Create Products"
+                    icon="pi pi-user-plus"
+                    class="menu-button"
+                    [routerLink]="['/products/new']">
+                </a>
+            </div>
+        </div>
+    </ng-template>
+
+    <!-- Barra de búsqueda -->
+  <!-- Barra de búsqueda -->
+<div class="controls-container">
+    <div class="search-container">
+        <i class="pi pi-search search-icon"></i>
+        <input type="text" class="search-input" [(ngModel)]="searchTerm" (input)="onSearch()" placeholder="Search products...">
+    </div>
+</div>
+
+<div class="table-container">
+    <p-table [value]="filteredProducts">
+        <ng-template pTemplate="header">
+            <tr class="table-header">
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Employee ID</th>
+                <th>Supplier ID</th>
+                <th>Category ID</th>
+                <th>Product Type ID</th>
+                <th>Product Detail ID</th>
+                <th class="flex justify-content-center flex-wrap">Actions</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+            <tr class="table-row">
+                <td>{{ product.name }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>{{ product.employee_id }}</td>
+                <td>{{ product.supplier_id }}</td>
+                <td>{{ product.category_id }}</td>
+                <td>{{ product.productType_id }}</td>
+                <td>{{ product.productDetail_id }}</td>
+                <td>
+                    <a
+                        pButton
+                        pRipple
+                        icon="pi pi-sync"
+                        class="menu-button bg-warning mr-1"
+                        [routerLink]="['/products/edit', product.id]">
+                    </a>
+                    <button
+                        pButton
+                        pRipple
+                        icon="pi pi-eraser"
+                        class="menu-button bg-danger mr-1"
+                        (click)="delete(product.id)">
+                    </button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

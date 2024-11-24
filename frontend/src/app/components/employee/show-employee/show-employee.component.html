@@ -1,0 +1,61 @@
+<p-card class="w-12 h-full">
+    <ng-template pTemplate="header">
+        <div class="flex justify-content-between flex-wrap">
+            <h3 class="ml-4">
+                Employee Registration
+            </h3>
+            <div class="mt-2 mr-2">
+                <a
+                    pButton
+                    pRipple
+                    label="Create Employee"
+                    icon="pi pi-user-plus"
+                    class="menu-button"
+                    [routerLink]="['/employees/new']">
+                </a>
+            </div>
+        </div>
+    </ng-template>
+    <div class="table-container">
+        <p-table [value]="employees">
+            <ng-template pTemplate="header">
+                <tr class="table-header">
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Position</th>
+                    <th>Email</th>
+                    <th class="flex justify-content-center flex-wrap">Actions</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-employees>
+                <tr class="table-row">
+                    <td>{{ employees.firstName }}</td>
+                    <td>{{ employees.lastName }}</td>
+                    <td>{{ employees.phone }}</td>
+                    <td>{{ employees.address }}</td>
+                    <td>{{ employees.position }}</td>
+                    <td>{{ employees.email }}</td>
+                    <td>
+                        <a
+                            pButton
+                            pRipple
+                            icon="pi pi-sync"
+                            class="menu-button bg-warning mr-1"
+                            [routerLink]="['/employees/edit', employees.id]">
+                        </a>
+                        <button
+                            pButton
+                            pRipple
+                            icon="pi pi-eraser"
+                            class="menu-button bg-danger mr-1"
+                            (click)="deleteEmployee(employees.id)">
+                        </button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</p-card>
+

@@ -1,0 +1,63 @@
+<p-card class="w-12 h-full">
+  <ng-template pTemplate="header">
+    <div class="flex justify-content-between flex-wrap">
+      <h3 class="ml-4">
+        Category Registration
+      </h3>
+      <div class="mt-2 mr-2">
+        <a
+          pButton
+          pRipple
+          label="Create Categories"
+          icon="pi pi-user-plus"
+          class="menu-button"
+          [routerLink]="['/categories/new']">
+        </a>
+      </div>
+    </div>
+  </ng-template>
+
+  <!-- Barra de búsqueda -->
+  <div class="controls-container">
+    <div class="search-container">
+      <i class="pi pi-search search-icon"></i>
+      <input type="text" class="search-input" [(ngModel)]="searchCategoryTerm" (input)="filterCategories()" placeholder="Search categories...">
+    </div>
+  </div>
+
+  <div class="table-container">
+    <p-table [value]="filteredCategories">
+      <ng-template pTemplate="header">
+        <tr class="table-header">
+          <th>Name</th>
+          <th>Description</th>
+          <th class="flex justify-content-center flex-wrap">Actions</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-category>
+        <tr class="table-row">
+          <td>{{ category.name }}</td>
+          <td>{{ category.description }}</td>
+          <td>
+            <a
+              pButton
+              pRipple
+              icon="pi pi-sync"
+              class="menu-button bg-warning mr-1"
+              [routerLink]="['/categories/edit', category.id]">
+            </a>
+            <button
+              pButton
+              pRipple
+              icon="pi pi-eraser"
+              class="menu-button bg-danger mr-1"
+              (click)="delete(category.id)">
+            </button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</p-card>
+
+

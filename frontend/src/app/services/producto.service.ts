@@ -7,48 +7,34 @@ import { ProductoI } from '../models/producto';
   providedIn: 'root'
 })
 export class ProductoService {
-  private apiUriNode = 'http://localhost:4000';
-  private basePath = `${this.apiUriNode}/productos`;
+  api_uri_node = 'http://localhost:4000';
+  base_path = `${this.api_uri_node}/productos`
+  create_path = `${this.api_uri_node}/producto`; 
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient
+  ) { }
 
-  /**
-   * Obtiene todos los productos.
-   */
-  getAllProductos(): Observable<{ producto: ProductoI[] }> {
-    return this.http.get<{ producto: ProductoI[] }>(this.basePath);
+  getAllProductos(): Observable<{ productos: ProductoI[] }> {
+    return this.http
+      .get<{ productos: ProductoI[] }>(this.base_path)
   }
 
-  /**
-   * Obtiene un producto por ID.
-   * @param productoId ID del producto.
-   */
-  getOneProducto(productoId: number): Observable<{ producto: ProductoI }> {
-    return this.http.get<{ producto: ProductoI }>(`${this.basePath}/${productoId}`);
+  getOneProducto(id: number): Observable<{ producto: ProductoI[] }> {
+    return this.http
+      .get<{ producto: ProductoI[] }>(`${this.base_path}/${id}`)
   }
 
-  /**
-   * Crea un nuevo producto.
-   * @param producto Datos del producto a crear.
-   */
-  createProducto(producto: ProductoI): Observable<ProductoI> {
-    return this.http.post<ProductoI>(this.basePath, producto);
+  createProducto(data: any): Observable<ProductoI> {
+    return this.http.post<ProductoI>(this.create_path, data)
   }
 
-  /**
-   * Actualiza un producto existente.
-   * @param productoId ID del producto a actualizar.
-   * @param producto Datos del producto a actualizar.
-   */
-  updateProducto(productoId: number, producto: ProductoI): Observable<ProductoI> {
-    return this.http.put<ProductoI>(`${this.basePath}/${productoId}`, producto);
+  updateProducto(id: number, data: any): Observable<ProductoI> {
+    return this.http.put<ProductoI>(`${this.base_path}/${id}`, data);
   }
 
-  /**
-   * Elimina un producto.
-   * @param productoId ID del producto a eliminar.
-   */
-  deleteProducto(productoId: number): Observable<ProductoI> {
-    return this.http.delete<ProductoI>(`${this.basePath}/${productoId}`);
+  deleteProducto(id: number): Observable<ProductoI> {
+    return this.http.delete<ProductoI>(`${this.base_path}/producto/${id}`);
   }
 }
+

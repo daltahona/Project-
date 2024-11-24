@@ -19,12 +19,12 @@ export class AsideComponent implements OnInit {
 
   ngOnInit() {
     this.items = [
-      { label: 'Empleados', icon: 'pi pi-users', routerLink: '/empleados' },
-      { label: 'Proveedores', icon: 'pi pi-building', routerLink: '/proveedores' },
-      { label: 'Detalle Productos', icon: 'pi pi-qrcode', routerLink: '/detalle_productos' },
-      { label: 'Categorías', icon: 'pi pi-tag', routerLink: '/categorias' },
-      { label: 'Tipo Productos', icon: 'pi pi-qrcode', routerLink: '/tipo_Productos' },
-      { label: 'Productos', icon: 'pi pi-shopping-bag', routerLink: '/productos' }
+      { label: 'Employees', icon: 'pi pi-users', routerLink: '/employees' },
+      { label: 'Suppliers', icon: 'pi pi-building', routerLink: '/suppliers' },
+      { label: 'Product Details', icon: 'pi pi-qrcode', routerLink: '/product_details' },
+      { label: 'Categories', icon: 'pi pi-tag', routerLink: '/categories' },
+      { label: 'Product Types', icon: 'pi pi-qrcode', routerLink: '/product_types' },
+      { label: 'Products', icon: 'pi pi-shopping-bag', routerLink: '/products' }      
     ];
     this.activeItem = this.items[0]; // Establece el primer elemento activo por defecto
   }

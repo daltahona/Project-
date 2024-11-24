@@ -1,0 +1,69 @@
+<div class="aside-container">
+    <p-card header="Create Supplier" [style]="{ width: '100%' }">
+      <ng-template pTemplate="header">
+        <!-- You can add additional content in the header if necessary -->
+      </ng-template>
+      <div>
+        <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
+          <div class="grid">
+            <div class="col-12 sm:col-6">
+              <div class="p-inputgroup mb-1">
+                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                <input class="w-12" type="text" pInputText formControlName="name" placeholder="Name" title="Name">
+              </div>
+            </div>
+  
+            <div class="col-12 sm:col-6">
+              <div class="p-inputgroup mb-1">
+                <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
+                <input class="w-12" type="text" pInputText formControlName="phone" placeholder="Phone" title="Phone">
+              </div>
+            </div>
+          </div>
+  
+          <div class="grid">
+            <div class="col-12 sm:col-6">
+              <div class="p-inputgroup mb-1">
+                <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
+                <input class="w-12" type="email" pInputText formControlName="email" placeholder="Email" title="Email">
+              </div>
+            </div>
+  
+            <div class="col-12 sm:col-6">
+              <div class="p-inputgroup mb-1">
+                <span class="p-inputgroup-addon"><i class="pi pi-id-card"></i></span>
+                <input class="w-12" type="text" pInputText formControlName="taxId" placeholder="Tax ID" title="Tax ID">
+              </div>
+            </div>
+          </div>
+  
+          <div class="flex justify-content-center flex-wrap">
+            <button 
+              pButton 
+              pRipple
+              label="Save"
+              icon="pi pi-save"
+              severity="info"
+              class="menu-button mr-4"
+              type="submit"
+            ></button>
+  
+            <button 
+              pButton 
+              pRipple
+              label="Cancel"
+              icon="pi pi-times-circle"
+              severity="warning"
+              class="menu-button mr-4"
+              type="button"
+              (click)="cancel()"
+            ></button>
+          </div>
+        </form>
+      </div>
+      <ng-template pTemplate="footer">
+        <!-- You can add additional content in the footer if necessary -->
+      </ng-template>
+    </p-card>
+</div>
+

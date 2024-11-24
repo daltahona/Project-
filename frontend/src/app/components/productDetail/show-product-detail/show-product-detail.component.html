@@ -1,0 +1,64 @@
+<p-card class="w-12 h-full">
+  <ng-template pTemplate="header">
+    <div class="flex justify-content-between flex-wrap">
+      <h3 class="ml-4">
+        Product Detail Registration
+      </h3>
+      <div class="mt-2 mr-2">
+        <a
+          pButton
+          pRipple
+          label="Create Product Detail"
+          icon="pi pi-user-plus"
+          class="menu-button"
+          [routerLink]="['/product_details/new']">
+        </a>
+      </div>
+    </div>
+  </ng-template>
+
+  <!-- Barra de búsqueda -->
+  <div class="controls-container">
+    <div class="search-container">
+      <i class="pi pi-search search-icon"></i>
+      <input type="text" class="search-input" [(ngModel)]="searchProductDetailTerm" (input)="filterProductDetails()" placeholder="Search product details...">
+    </div>
+  </div>
+
+  <div class="table-container">
+    <p-table [value]="filteredProductDetails">
+      <ng-template pTemplate="header">
+        <tr class="table-header">
+          <th>Description</th>
+          <th>Value</th>
+          <th>ISBN</th>
+          <th class="flex justify-content-center flex-wrap">Actions</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-productDetail>
+        <tr class="table-row">
+          <td>{{ productDetail.description }}</td>
+          <td>{{ productDetail.value }}</td>
+          <td>{{ productDetail.isbn }}</td>
+          <td>
+            <a
+              pButton
+              pRipple
+              icon="pi pi-sync"
+              class="menu-button bg-warning mr-1"
+              [routerLink]="['/product_details/edit', productDetail.id]">
+            </a>
+            <button
+              pButton
+              pRipple
+              icon="pi pi-eraser"
+              class="menu-button bg-danger mr-1"
+              (click)="delete(productDetail.id)">
+            </button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</p-card>
+  
